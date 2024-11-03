@@ -15,6 +15,7 @@ public class WindowContent extends Scene {
     private Canvas canvas;
     private GraphicsContext gc;
     private Group root;
+    private ImageView sprite;
 
     public WindowContent(Group root, int width, int height) {
         super(root, width, height);
@@ -27,18 +28,22 @@ public class WindowContent extends Scene {
 
     public void addSprite(String spritePath, double x, double y, double width, double height) {
         try {
-            Image sprite = new Image(new FileInputStream(spritePath));
-            ImageView imageView = new ImageView(sprite);
+            Image spriteImage = new Image(new FileInputStream(spritePath));
+            sprite = new ImageView(spriteImage);
 
-            imageView.setFitWidth(width);
-            imageView.setFitHeight(height);
-            imageView.setX(x);
-            imageView.setY(y);
-            imageView.setPreserveRatio(true);
+            sprite.setFitWidth(width);
+            sprite.setFitHeight(height);
+            sprite.setX(x);
+            sprite.setY(y);
+            sprite.setPreserveRatio(true);
 
-            root.getChildren().add(imageView);
+            root.getChildren().add(sprite);
         } catch (FileNotFoundException e) {
             System.err.println("Something went wrong when trying to add sprite " + spritePath);
         }
+    }
+
+    public ImageView getSprite() {
+        return sprite;
     }
 }

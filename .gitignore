@@ -14,6 +14,9 @@ build/
 *.ipr
 out/
 resources/
+resources/smile.png
+net/syntaxsama/fluxcore/HelloApplication.java
+net/syntaxsama/fluxcore/HelloController.java
 !**/src/main/**/out/
 !**/src/test/**/out/
 
