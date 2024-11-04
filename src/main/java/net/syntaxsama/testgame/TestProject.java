@@ -46,8 +46,6 @@ public class TestProject extends Application {
 
         newContent.addSprite("/Users/syntaxsama/IdeaProjects/FluxCore/src/main/resources/smile.png", 150, 110, 200, 200);
 
-        newStage.getScene().setFill(Color.AQUA);
-
         newStage.setWindow(newContent);
     }
 
