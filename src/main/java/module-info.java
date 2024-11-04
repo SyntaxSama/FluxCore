@@ -1,9 +1,9 @@
-module net.syntaxsama.fluxcore {
+module net.syntaxsama.testgame {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.desktop;
 
 
-    opens net.syntaxsama.fluxcore to javafx.fxml;
-    exports net.syntaxsama.fluxcore;
+    opens net.syntaxsama.testgame to javafx.fxml;
+    exports net.syntaxsama.testgame;
 }
