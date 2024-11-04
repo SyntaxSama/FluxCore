@@ -14,6 +14,8 @@ public class WindowControls {
     private double speed;
     private double jumpHeight;
     private boolean isJumping;
+    private boolean diagonalMovementEnabled;
+    private boolean jumpingEnabled;
     private Map<KeyCode, Runnable> keyBindings;
     private Map<KeyCode, Boolean> keyStates;
 
@@ -22,6 +24,8 @@ public class WindowControls {
         this.speed = speed;
         this.jumpHeight = jumpHeight;
         this.isJumping = false;
+        this.diagonalMovementEnabled = false;  
+        this.jumpingEnabled = false;
         this.keyBindings = new HashMap<>();
         this.keyStates = new HashMap<>();
         initControls(scene);
@@ -39,11 +43,13 @@ public class WindowControls {
             action.run();
         }
 
-        if (keyEvent.getCode() == KeyCode.SPACE && !isJumping) {
+        if (keyEvent.getCode() == KeyCode.SPACE && jumpingEnabled && !isJumping) {
             jump();
         }
 
-        checkDiagonalMovement();
+        if (diagonalMovementEnabled) {
+            checkDiagonalMovement();
+        }
     }
 
     private void handleKeyReleased(KeyEvent keyEvent) {
@@ -67,23 +73,16 @@ public class WindowControls {
     }
 
     private void checkDiagonalMovement() {
-
         if (keyStates.getOrDefault(KeyCode.W, false) && keyStates.getOrDefault(KeyCode.A, false)) {
             moveUp();
             moveLeft();
-        }
-
-        else if (keyStates.getOrDefault(KeyCode.W, false) && keyStates.getOrDefault(KeyCode.D, false)) {
+        } else if (keyStates.getOrDefault(KeyCode.W, false) && keyStates.getOrDefault(KeyCode.D, false)) {
             moveUp();
             moveRight();
-        }
-
-        else if (keyStates.getOrDefault(KeyCode.S, false) && keyStates.getOrDefault(KeyCode.A, false)) {
+        } else if (keyStates.getOrDefault(KeyCode.S, false) && keyStates.getOrDefault(KeyCode.A, false)) {
             moveDown();
             moveLeft();
-        }
-
-        else if (keyStates.getOrDefault(KeyCode.S, false) && keyStates.getOrDefault(KeyCode.D, false)) {
+        } else if (keyStates.getOrDefault(KeyCode.S, false) && keyStates.getOrDefault(KeyCode.D, false)) {
             moveDown();
             moveRight();
         }
@@ -107,5 +106,13 @@ public class WindowControls {
 
     public void bindKey(KeyCode key, Runnable action) {
         keyBindings.put(key, action);
+    }
+
+    public void setDiagonalMovementEnabled(boolean enabled) {
+        this.diagonalMovementEnabled = enabled;
+    }
+
+    public void setJumpingEnabled(boolean enabled) {
+        this.jumpingEnabled = enabled;
     }
 }

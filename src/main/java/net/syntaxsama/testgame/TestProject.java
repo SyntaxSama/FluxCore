@@ -32,6 +32,8 @@ public class TestProject extends Application {
         controls.bindKey(KeyCode.A, controls::moveLeft);
         controls.bindKey(KeyCode.S, controls::moveDown);
         controls.bindKey(KeyCode.D, controls::moveRight);
+        controls.setDiagonalMovementEnabled(true);
+        controls.setJumpingEnabled(true);
 
         controls.bindKey(KeyCode.ENTER, () -> setNewWindowContent());
 
