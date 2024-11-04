@@ -3,7 +3,9 @@ package net.syntaxsama.testgame;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.input.KeyCode;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import net.syntaxsama.fluxcore.text.TextManager;
 import net.syntaxsama.fluxcore.windows.Window;
 import net.syntaxsama.fluxcore.windows.WindowContent;
 import net.syntaxsama.fluxcore.windows.WindowControls;
@@ -24,7 +26,10 @@ public class TestProject extends Application {
     private void setupInitialContent() {
         Group root = new Group();
         WindowContent content = new WindowContent(root, 500, 350);
+        TextManager text = new TextManager(root);
         content.addSprite("1", "/Users/syntaxsama/IdeaProjects/FluxCore/src/main/resources/smile.png", 100, 100, 100, 100);
+
+        text.addText("1", "Test Text", 100, 90, 90, Color.BLACK);
 
         WindowControls controls = new WindowControls(content, content.getSprite("1"), 50.0, 10.0);
         controls.bindKey(KeyCode.W, controls::moveUp);
