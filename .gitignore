@@ -14,8 +14,8 @@ build/
 *.ipr
 out/
 resources/
-net/syntaxsama/fluxcore/HelloApplication.java
-net/syntaxsama/fluxcore/HelloController.java
+src/main/java/net/syntaxsama/fluxcore/HelloApplication.java
+src/main/java/net/syntaxsama/fluxcore/HelloController.java
 !**/src/main/**/out/
 !**/src/test/**/out/
 
