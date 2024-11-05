@@ -43,7 +43,7 @@ public class WindowContent extends Scene {
             root.getChildren().add(sprite);
             sprites.put(id, sprite);
         } catch (FileNotFoundException e) {
-            System.err.println("Something went wrong when trying to add sprite " + spritePath);
+            System.err.println("Something went wrong when trying to add the sprite with id '" + id + "' with the graphic " + spritePath);
         }
     }
 

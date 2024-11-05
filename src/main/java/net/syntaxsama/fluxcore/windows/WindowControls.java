@@ -24,7 +24,7 @@ public class WindowControls {
         this.speed = speed;
         this.jumpHeight = jumpHeight;
         this.isJumping = false;
-        this.diagonalMovementEnabled = false;  
+        this.diagonalMovementEnabled = false;
         this.jumpingEnabled = false;
         this.keyBindings = new HashMap<>();
         this.keyStates = new HashMap<>();
@@ -97,7 +97,7 @@ public class WindowControls {
                 Thread.sleep(500);
                 sprite.setY(sprite.getY() + jumpHeight);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                System.err.println("Jump thread was interrupted: " + e.getMessage());
             } finally {
                 isJumping = false;
             }
