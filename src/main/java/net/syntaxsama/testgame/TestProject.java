@@ -5,6 +5,7 @@ import javafx.scene.Group;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import net.syntaxsama.fluxcore.gui.Buttons;
 import net.syntaxsama.fluxcore.gui.Sliders;
 import net.syntaxsama.fluxcore.text.TextManager;
 import net.syntaxsama.fluxcore.windows.Window;
@@ -50,6 +51,11 @@ public class TestProject extends Application {
         WindowContent newContent = new WindowContent(newRoot, 500, 350);
 
         Sliders volume = new Sliders(newRoot, "Volume", 0, 100, 50, 100, 100, 150, 100);
+
+        Buttons buttonManager = new Buttons(newRoot);
+        buttonManager.addButton("clickHere", null, 100, 100, 90, 90, "/Users/syntaxsama/IdeaProjects/FluxCore/src/main/resources/smile.png", () -> {
+            System.out.println("You clicked a button!");
+        });
 
         newStage.setWindow(newContent);
     }
