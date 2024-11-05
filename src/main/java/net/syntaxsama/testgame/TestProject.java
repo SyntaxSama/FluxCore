@@ -17,6 +17,7 @@ import java.io.IOException;
 public class TestProject extends Application {
 
     private Window newStage;
+    private int clicks;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -28,10 +29,8 @@ public class TestProject extends Application {
     private void setupInitialContent() {
         Group root = new Group();
         WindowContent content = new WindowContent(root, 500, 350);
-        TextManager text = new TextManager(root);
-        content.addSprite("1", "/Users/syntaxsama/IdeaProjects/FluxCore/src/main/resources/smile.png", 100, 100, 100, 100);
 
-        text.addText("1", "Test Text", 100, 90, 90, Color.BLACK);
+        content.addSprite("1", "/Users/syntaxsama/IdeaProjects/FluxCore/src/main/resources/smile.png", 100, 100, 100, 100);
 
         WindowControls controls = new WindowControls(content, content.getSprite("1"), 50.0, 10.0);
         controls.bindKey(KeyCode.W, controls::moveUp);
@@ -42,8 +41,27 @@ public class TestProject extends Application {
         controls.setJumpingEnabled(true);
 
         controls.bindKey(KeyCode.ENTER, () -> setNewWindowContent());
+        controls.bindKey(KeyCode.E, () -> setClickerWindowContent());
 
         newStage.setWindow(content);
+    }
+
+    private void setClickerWindowContent() {
+
+        Group click = new Group();
+        WindowContent clicker = new WindowContent(click, 500, 350);
+
+        TextManager text = new TextManager(click);
+
+        text.addText("1", "Test Text", 100, 90, 90, Color.BLACK);
+
+        Buttons clickd = new Buttons(click);
+        clickd.addButton("clicker", "Click Here!", 100, 120, 100, 50, null, () -> {
+            clicks++;
+            text.setText("1", String.valueOf(clicks));
+        });
+
+        newStage.setWindow(clicker);
     }
 
     private void setNewWindowContent() {
