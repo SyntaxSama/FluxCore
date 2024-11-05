@@ -5,6 +5,7 @@ import javafx.scene.Group;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import net.syntaxsama.fluxcore.gui.Sliders;
 import net.syntaxsama.fluxcore.text.TextManager;
 import net.syntaxsama.fluxcore.windows.Window;
 import net.syntaxsama.fluxcore.windows.WindowContent;
@@ -48,7 +49,7 @@ public class TestProject extends Application {
         Group newRoot = new Group();
         WindowContent newContent = new WindowContent(newRoot, 500, 350);
 
-        newContent.addSprite("2", "/Users/syntaxsama/IdeaProjects/FluxCore/src/main/resources/smile.png", 150, 110, 200, 200);
+        Sliders volume = new Sliders(newRoot, "Volume", 0, 100, 50, 100, 100, 150, 100);
 
         newStage.setWindow(newContent);
     }
