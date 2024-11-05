@@ -36,4 +36,11 @@ public class TextManager {
     public boolean hasText(String id) {
         return textElements.containsKey(id);
     }
+
+    public void setText(String id, String newText) {
+        TextElement textElement = textElements.get(id);
+        if (textElement != null) {
+            textElement.setContent(newText); 
+        }
+    }
 }
