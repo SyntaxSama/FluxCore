@@ -6,6 +6,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import net.syntaxsama.fluxcore.gui.Buttons;
+import net.syntaxsama.fluxcore.gui.KeyBinds;
 import net.syntaxsama.fluxcore.gui.Sliders;
 import net.syntaxsama.fluxcore.text.TextManager;
 import net.syntaxsama.fluxcore.windows.Window;
@@ -60,6 +61,10 @@ public class TestProject extends Application {
             clicks++;
             text.setText("1", String.valueOf(clicks));
         });
+
+        KeyBinds keyBinds = new KeyBinds(click);
+
+        keyBinds.bindKey(KeyCode.E, () -> setupInitialContent());
 
         newStage.setWindow(clicker);
     }
